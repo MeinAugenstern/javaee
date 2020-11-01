@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+"http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<!-- 版本1
+<struts>
+	
+	<package name="strutsBean" extends="struts-default" namespace="/">
+		<interceptors> 
+			<interceptor name="authority" class="cn.edu.zjut.interceptors.AuthorityInterceptor"/> 
+		</interceptors> 
+		<action name="login" class="cn.edu.zjut.action.UserAction" method="login"> 
+			<result name="success" type="redirect">/loginSuccess.jsp</result> 
+			<result name="fail">/loginFail.jsp</result> 
+			<result name="exception">/loginException.jsp</result>
+		</action> 
+		<action name="allItems" class="cn.edu.zjut.action.ItemAction" method="getAllItems"> 
+			<result name="login">/login.jsp</result> 
+			<result name="success">/itemList.jsp</result> 
+			<interceptor-ref name="defaultStack"/> 
+			<interceptor-ref name="authority"/>
+		</action>
+	</package>
+</struts>	
+ -->
+<struts>
+	<package name="strutsBean" extends="struts-default" namespace="/">
+		<interceptors> 
+			<interceptor name="authority" class="cn.edu.zjut.interceptors.AuthorityInterceptor"/> 
+		</interceptors> 
+		<global-results> 
+			<result name="sqlExcp">/loginException.jsp</result> 
+		</global-results> 
+		<global-exception-mappings> 
+			<exception-mapping exception="java.sql.SQLException" result="sqlExcp"/> 
+		</global-exception-mappings>
+		<action name="login" class="cn.edu.zjut.action.UserAction" method="login"> 
+			<exception-mapping result="userExcp" 
+				exception="cn.edu.zjut.exception.UserException"/> 
+			<result name="userExcp">/loginException.jsp</result>
+			<result name="success" type="redirect">/loginSuccess.jsp</result> 
+			<result name="fail">/loginFail.jsp</result> 
+		</action> 
+		<action name="allItems" class="cn.edu.zjut.action.ItemAction" method="getAllItems"> 
+			<result name="login">/login.jsp</result> 
+			<result name="success">/itemList.jsp</result> 
+			<!-- 配置系统默认拦截器 --> 
+			<interceptor-ref name="defaultStack"/> 
+			<!-- 配置 authority 拦截器 --> 
+			<interceptor-ref name="authority"/>
+		</action>
+	</package>
+</struts>	

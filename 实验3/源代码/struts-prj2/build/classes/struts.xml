@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" 
+"http://struts.apache.org/dtds/struts-2.3.dtd"> 
+<!-- 版本1 
+<struts>
+	<package name="strutsBean" extends="struts-default" namespace="/"> 
+		<action name="login" class="cn.edu.zjut.action.UserAction" method="login"> 
+			<result name="success" type="redirect">/loginSuccess.jsp</result> 
+			<result name="fail">/loginFail.jsp</result> 
+		</action> 
+		<action name="register" class="cn.edu.zjut.action.UserAction" method="register"> 
+			<result name="registersuccess">/regSuccess.jsp</result> 
+			<result name="registerfail">/regFail.jsp</result> 
+		</action> 
+	</package>
+</struts>
+-->
+
+<!-- DMI 
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+	<package name="strutsBean" extends="struts-default" namespace="/"> 
+	<global-allowed-methods>login</global-allowed-methods>
+		<action name="UserAction" class="cn.edu.zjut.action.UserAction"> 
+			<result name="success">/loginSuccess.jsp</result> 
+			<result name="fail">/loginFail.jsp</result> 
+			<result name="registersuccess">/regSuccess.jsp</result> 
+			<result name="registerfail">/regFail.jsp</result> 
+		</action> 
+	</package>
+</struts>
+-->
+<!-- 提交按钮的method形式
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+	<package name="strutsBean" extends="struts-default" namespace="/"> 
+		<action name="UserAction" class="cn.edu.zjut.action.UserAction"> 
+			<result name="success">/loginSuccess.jsp</result> 
+			<result name="fail">/loginFail.jsp</result> 
+			<result name="registersuccess">/regSuccess.jsp</result> 
+			<result name="registerfail">/regFail.jsp</result> 
+		</action> 
+	</package>
+</struts>
+ -->
+ <!-- 通配符
+ <struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
+	<package name="strutsBean" extends="struts-default" namespace="/"> 
+		<action name="*Action" class="cn.edu.zjut.action.UserAction" method="{1}"> 
+			<result name="success">/loginSuccess.jsp</result> 
+			<result name="fail">/loginFail.jsp</result> 
+			<result name="registersuccess">/regSuccess.jsp</result> 
+			<result name="registerfail">/regFail.jsp</result> 
+		</action> 
+	</package>
+</struts>
+  -->
+  <!-- 提高实验 -->
+ 
+ <struts>
+	<package name="strutsBean" extends="struts-default" namespace="/"> 
+		<action name="login" class="cn.edu.zjut.action.UserAction" method="login"> 
+			<result name="success">/loginSuccess.jsp</result> 
+			<result name="fail">/login.jsp</result>
+			<result name="input">/login.jsp</result> 
+		</action> 
+		<action name="register" class="cn.edu.zjut.action.UserAction" method="register"> 
+			<result name="registersuccess">/regSuccess.jsp</result> 
+			<result name="registerfail">/regFail.jsp</result> 
+			<result name="input">/register.jsp</result> 
+		</action> 
+	</package>
+</struts>
