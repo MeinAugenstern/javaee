@@ -19,8 +19,8 @@
 </tr> 
 <s:iterator value="items" > 
 <tr>
-	<td><s:property value="itemID"/></td> 
-	<td><s:property value="title"/></td> 
+	<td><s:property value="ipk.itemid"/></td> 
+	<td><s:property value="ipk.title"/></td> 
 	<td><s:property value="description"/></td> 
 	<td><s:property value="cost"/></td> 
 </tr> 

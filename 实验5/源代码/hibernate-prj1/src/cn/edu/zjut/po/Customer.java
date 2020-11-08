@@ -2,7 +2,7 @@ package cn.edu.zjut.po;
 
 import java.util.Date;
 
-public class Customer { 
+public class Customer implements java.io.Serializable{ 
 	private int customerId; 
 	private String account; 
 	private String password; 
